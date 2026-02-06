@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 };
 
 import FloatingCTA from "@/components/FloatingCTA";
+import CookieBanner from "@/components/CookieBanner";
 
 export default function RootLayout({
   children,
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         {children}
         <FloatingCTA />
+        <CookieBanner />
       </body>
     </html>
   );
