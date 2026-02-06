@@ -10,7 +10,7 @@ export default function SplashScreen() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(false);
-        }, 1800); // Fast but noticeable duration
+        }, 1800);
 
         document.body.style.overflow = "hidden";
 
@@ -29,17 +29,17 @@ export default function SplashScreen() {
                         opacity: 0,
                         transition: { duration: 0.5, ease: "circIn" }
                     }}
-                    className="fixed inset-0 z-[99999] bg-[#010816] flex items-center justify-center overflow-hidden"
+                    className="fixed inset-0 z-[99999] bg-[#FFFFFF] flex items-center justify-center overflow-hidden"
                 >
-                    {/* Deep Ambient Glows */}
+                    {/* Soft Minimalist Glow */}
                     <motion.div
                         initial={{ scale: 0.8, opacity: 0 }}
-                        animate={{ scale: 1.5, opacity: 0.15 }}
-                        className="absolute w-[800px] h-[800px] bg-accent/20 rounded-full blur-[140px]"
+                        animate={{ scale: 1.5, opacity: 0.3 }}
+                        className="absolute w-[800px] h-[800px] bg-accent/5 rounded-full blur-[140px]"
                     />
 
                     <div className="relative flex flex-col items-center">
-                        {/* Minimalist Logo focus */}
+                        {/* Enlarged Logo Focus */}
                         <motion.div
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
@@ -47,17 +47,17 @@ export default function SplashScreen() {
                                 duration: 0.8,
                                 ease: [0.16, 1, 0.3, 1]
                             }}
-                            className="relative w-32 h-32 md:w-40 md:h-40"
+                            className="relative w-48 h-48 md:w-64 md:h-64"
                         >
                             <Image
                                 src="/clinton.webp"
                                 alt="Clinton & Co"
                                 fill
-                                className="object-contain brightness-110 drop-shadow-[0_0_30px_rgba(37,99,235,0.3)]"
+                                className="object-contain"
                                 priority
                             />
 
-                            {/* Prominent High-End Shimmer */}
+                            {/* Refined Shimmer for White Background */}
                             <motion.div
                                 animate={{
                                     x: ["-150%", "150%"],
@@ -68,17 +68,17 @@ export default function SplashScreen() {
                                     repeatDelay: 0.3,
                                     ease: "easeInOut"
                                 }}
-                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[25deg] pointer-events-none"
+                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[25deg] pointer-events-none mix-blend-overlay"
                             />
                         </motion.div>
 
                         {/* Subtle loading line for "Next Page" feel */}
-                        <div className="mt-12 w-32 h-[1px] bg-white/5 overflow-hidden">
+                        <div className="mt-12 w-32 h-[1px] bg-primary/5 overflow-hidden">
                             <motion.div
                                 initial={{ x: "-100%" }}
                                 animate={{ x: "100%" }}
                                 transition={{ duration: 1.5, ease: "linear", repeat: Infinity }}
-                                className="w-full h-full bg-accent"
+                                className="w-full h-full bg-primary/20"
                             />
                         </div>
                     </div>
