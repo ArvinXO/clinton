@@ -231,6 +231,19 @@ export default function AdminPortal() {
                     </div>
 
                     <div className="lg:col-span-12 xl:col-span-4 space-y-8">
+                        <button
+                            onClick={resetForm}
+                            className="w-full bg-white border-2 border-dashed border-border p-8 rounded-[2.5rem] flex flex-col items-center justify-center gap-4 group hover:border-accent hover:bg-accent/5 transition-all"
+                        >
+                            <div className="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
+                                <Plus className="w-6 h-6" />
+                            </div>
+                            <div className="text-center">
+                                <span className="block font-serif text-lg text-primary">Start New Draft</span>
+                                <span className="text-[10px] text-muted uppercase tracking-widest">Clear editor for new entry</span>
+                            </div>
+                        </button>
+
                         <div className="bg-white p-8 rounded-[2.5rem] border border-border shadow-sm">
                             <h3 className="text-xl font-serif text-primary mb-6">Insight Inventory</h3>
                             <div className="space-y-4 max-h-[800px] overflow-y-auto pr-2 custom-scrollbar">
