@@ -52,7 +52,7 @@ const Mission = () => {
                                 <p className="text-xl font-serif italic mb-4">
                                     "We don't just recover funds; we recover lives. Our work is about stopping the cycle of abuse that offshore casinos rely on for profit."
                                 </p>
-                                <p className="text-white/60 font-bold uppercase tracking-widest text-xs">
+                                <p className="!text-white/60 font-bold uppercase tracking-widest text-xs">
                                     — Our Founding Principle
                                 </p>
                             </div>

@@ -30,8 +30,8 @@ const Testimonials = () => {
         <section className="py-24 bg-primary text-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-16">
-                    <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-white/70 mb-4">Success Stories</h2>
-                    <h3 className="text-4xl md:text-5xl font-serif text-white">Trusted by Players</h3>
+                    <h2 className="text-sm font-bold uppercase tracking-[0.3em] !text-white/70 mb-4">Success Stories</h2>
+                    <h3 className="text-4xl md:text-5xl font-serif !text-white">Trusted by Players</h3>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
@@ -44,14 +44,14 @@ const Testimonials = () => {
                             transition={{ delay: i * 0.1 }}
                             className="bg-white/5 border border-white/10 p-8 rounded-2xl relative"
                         >
-                            <Quote className="w-10 h-10 text-accent/20 absolute top-6 right-6" />
+                            <Quote className="w-10 h-10 !text-white/10 absolute top-6 right-6" />
                             <p className="text-lg leading-relaxed mb-8 italic text-white/90">
                                 "{t.text}"
                             </p>
                             <div>
-                                <p className="font-bold text-lg">{t.author}</p>
-                                <p className="text-accent text-sm font-bold uppercase tracking-widest">{t.amount}</p>
-                                <p className="text-white/40 text-xs mt-1">{t.location}</p>
+                                <p className="font-bold text-lg text-white">{t.author}</p>
+                                <p className="!text-white text-sm font-bold uppercase tracking-widest mt-1 opacity-80">{t.amount}</p>
+                                <p className="text-white/40 text-xs mt-2">{t.location}</p>
                             </div>
                         </motion.div>
                     ))}
