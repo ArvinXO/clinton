@@ -207,16 +207,7 @@ export const articles: Article[] = [
         "readTime": "8 min read",
         "date": "February 6, 2026"
     },
-    {
-    "id": "1770382772759",
-    "title": "asda",
-    "category": "Legal Guide",
-    "summary": "asda",
-    "content": "<p>asda</p>",
-    "slug": "a",
-    "readTime": "8 min read",
-    "date": "February 6, 2026"
-},
+    
     {
     "id": "1770383173137",
     "title": "DSAD",
