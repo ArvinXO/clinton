@@ -3,37 +3,59 @@
 import { revalidatePath } from "next/cache";
 
 /**
- * THE CLEVER CMS SOLUTION
- * This server action allows your client to 'publish' directly to the website code.
- * It uses the GitHub API to update the articles.ts file.
+ * GITHUB API COST CLARIFICATION:
+ * For individual users and small organizations, the GitHub API is FREE.
+ * - Authenticated requests (via Token) allow 5,000 requests per hour.
+ * - GitHub Actions has a VERY generous free tier (2,000 mins/month), 
+ *   which is 100x more than what this tiny CMS will ever use.
  */
 
-export async function publishArticle(formData: any) {
-    const token = process.env.GITHUB_TOKEN;
-    const owner = process.env.REPO_OWNER;
-    const repo = process.env.REPO_NAME;
-    const path = "src/data/articles.ts";
+const token = process.env.GITHUB_TOKEN;
+const owner = process.env.REPO_OWNER;
+const repo = process.env.REPO_NAME;
+const path = "src/data/articles.ts";
 
-    if (!token || !owner || !repo) {
-        return { success: false, message: "Configuration missing." };
+async function getGithubFile() {
+    const getFileUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+    const resp = await fetch(getFileUrl, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Accept": "application/vnd.github.v3+json"
+        },
+        cache: 'no-store'
+    });
+    if (!resp.ok) throw new Error("Failed to fetch repository data.");
+    return await resp.json();
+}
+
+async function commitToGithub(content: string, sha: string, message: string) {
+    const getFileUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+    const resp = await fetch(getFileUrl, {
+        method: "PUT",
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            message,
+            content: Buffer.from(content).toString("base64"),
+            sha: sha
+        })
+    });
+    if (!resp.ok) {
+        const err = await resp.json();
+        throw new Error(err.message || "Failed to commit change.");
     }
+    return true;
+}
+
+export async function publishArticle(formData: any) {
+    if (!token || !owner || !repo) return { success: false, message: "Server ENV vars missing." };
 
     try {
-        // 1. Get the current file content and its SHA
-        const getFileUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-        const getFileResp = await fetch(getFileUrl, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Accept": "application/vnd.github.v3+json"
-            },
-            cache: 'no-store'
-        });
-
-        if (!getFileResp.ok) throw new Error("Failed to fetch current articles data.");
-        const fileData = await getFileResp.json();
+        const fileData = await getGithubFile();
         const currentContent = Buffer.from(fileData.content, "base64").toString("utf-8");
 
-        // 2. Parse the existing array and append the new article
         const newArticle = {
             id: Date.now().toString(),
             ...formData,
@@ -42,35 +64,51 @@ export async function publishArticle(formData: any) {
         };
 
         const jsonString = JSON.stringify(newArticle, null, 4);
-
-        // Use a more robust regex to find the array end
         const arrayEndIndex = currentContent.lastIndexOf("];");
-        if (arrayEndIndex === -1) throw new Error("Could not find end of articles array.");
-
         const updatedContent = currentContent.slice(0, arrayEndIndex) + `    ${jsonString},\n];`;
 
-        // 3. Commit the change back to GitHub
-        const updateResp = await fetch(getFileUrl, {
-            method: "PUT",
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                message: `feat(cms): publish new article "${formData.title}"`,
-                content: Buffer.from(updatedContent).toString("base64"),
-                sha: fileData.sha
-            })
-        });
-
-        if (!updateResp.ok) {
-            const err = await updateResp.json();
-            throw new Error(err.message || "Failed to commit to GitHub.");
-        }
-
+        await commitToGithub(updatedContent, fileData.sha, `feat(cms): add article "${formData.title}"`);
         revalidatePath("/articles");
         return { success: true, message: "Published successfully." };
+    } catch (error: any) {
+        return { success: false, message: error.message };
+    }
+}
 
+export async function deleteArticle(articleId: string) {
+    if (!token || !owner || !repo) return { success: false, message: "Server ENV vars missing." };
+
+    try {
+        const fileData = await getGithubFile();
+        const currentContent = Buffer.from(fileData.content, "base64").toString("utf-8");
+
+        // Use regex to remove the object with this ID. 
+        // This is a simple parser that works for our specific file structure.
+        const regex = new RegExp(`\\{\\s+"id":\\s+"${articleId}"[\\s\\S]*?\\},`, "g");
+        const updatedContent = currentContent.replace(regex, "");
+
+        await commitToGithub(updatedContent, fileData.sha, `feat(cms): delete article ID ${articleId}`);
+        revalidatePath("/articles");
+        return { success: true, message: "Article deleted." };
+    } catch (error: any) {
+        return { success: false, message: error.message };
+    }
+}
+
+export async function updateArticle(articleId: string, formData: any) {
+    if (!token || !owner || !repo) return { success: false, message: "Server ENV vars missing." };
+
+    try {
+        const fileData = await getGithubFile();
+        const currentContent = Buffer.from(fileData.content, "base64").toString("utf-8");
+
+        const regex = new RegExp(`\\{\\s+"id":\\s+"${articleId}"[\\s\\S]*?\\}`, "g");
+        const jsonString = JSON.stringify({ id: articleId, ...formData }, null, 4);
+        const updatedContent = currentContent.replace(regex, jsonString);
+
+        await commitToGithub(updatedContent, fileData.sha, `feat(cms): update article "${formData.title}"`);
+        revalidatePath("/articles");
+        return { success: true, message: "Article updated." };
     } catch (error: any) {
         return { success: false, message: error.message };
     }
