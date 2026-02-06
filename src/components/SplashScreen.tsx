@@ -10,6 +10,7 @@ export default function SplashScreen() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(false);
+            document.body.style.overflow = "unset";
         }, 1800);
 
         document.body.style.overflow = "hidden";
