@@ -8,6 +8,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import SplashScreen from "@/components/SplashScreen";
 
 const TrustBar = () => (
   <div className="py-12 border-y border-border bg-white/50 backdrop-blur-sm overflow-hidden">
@@ -17,7 +18,6 @@ const TrustBar = () => (
       </p>
       <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
         <span className="text-xl font-serif font-bold italic tracking-tighter">LAW SOCIETY</span>
-        <span className="text-xl font-serif font-bold tracking-tighter decoration-accent underline underline-offset-4">SRA REGULATED</span>
         <span className="text-xl font-serif font-bold tracking-tight">DATA PROTECTION</span>
         <span className="text-xl font-serif font-bold italic tracking-widest">LEGAL NETWORK</span>
       </div>
@@ -28,6 +28,7 @@ const TrustBar = () => (
 export default function Home() {
   return (
     <main className="relative min-h-screen">
+      <SplashScreen />
       <DynamicBackground />
       <Navbar />
       <Hero />
