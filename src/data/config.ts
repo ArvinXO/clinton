@@ -1,4 +1,4 @@
 export const CONFIG = {
-    version: "live beta 2.1.20",
+    version: "live beta 2.1.21",
     lastUpdated: "February 6, 2026"
 };
