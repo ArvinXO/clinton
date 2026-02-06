@@ -206,4 +206,14 @@ export const categories = [
     "Case Study",
     "Regulation",
     "Privacy & Data"
+    {
+    "id": "1770382040972",
+    "title": "asdasd",
+    "category": "Legal Guide",
+    "summary": "asdasd",
+    "content": "<p>asdasd</p>",
+    "slug": "",
+    "readTime": "8 min read",
+    "date": "February 6, 2026"
+},
 ];
