@@ -217,6 +217,16 @@ export const articles: Article[] = [
     "readTime": "8 min read",
     "date": "February 6, 2026"
 },
+    {
+    "id": "1770383173137",
+    "title": "DSAD",
+    "category": "Legal Guide",
+    "summary": "DSA",
+    "content": "<p>DSA</p>",
+    "slug": "DSA",
+    "readTime": "8 min read",
+    "date": "JAN 6, 2026"
+},
 ];
 
 export const categories = [
