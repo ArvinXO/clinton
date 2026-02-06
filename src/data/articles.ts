@@ -216,4 +216,14 @@ export const categories = [
     "readTime": "8 min read",
     "date": "February 6, 2026"
 },
+    {
+    "id": "1770382115891",
+    "title": "ASDDSADSA",
+    "category": "Legal Guide",
+    "summary": "ASDASDSASADDSASADSADDSA",
+    "content": "<p>ADSDSAADSSADSDASADDSASDA SADDASDASDSADASSADDAS DA SSADDSASADSADSADSASDA DSA</p>",
+    "slug": "",
+    "readTime": "8 min read",
+    "date": "February 6, 2026"
+},
 ];
