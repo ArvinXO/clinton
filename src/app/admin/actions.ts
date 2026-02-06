@@ -96,8 +96,14 @@ export async function deleteArticle(articleId: string) {
 
         // Use regex to remove the object with this ID. 
         // This is a simple parser that works for our specific file structure.
-        const regex = new RegExp(`\\{\\s+"id":\\s+"${articleId}"[\\s\\S]*?\\},`, "g");
-        const updatedContent = currentContent.replace(regex, "");
+        // Improved regex for deletion: matches the object and optional trailing comma/newline
+        const regex = new RegExp(`\\s*\\{\\s+"id":\\s+"${articleId}"[\\s\\S]*?\\},?`, "g");
+        let updatedContent = currentContent.replace(regex, "");
+
+        // Clean up syntax artifacts
+        updatedContent = updatedContent.replace(/\[\s*,/, "[");
+        updatedContent = updatedContent.replace(/,\s*,/g, ",");
+        updatedContent = updatedContent.replace(/,\s*\]/, "\n];");
 
         await commitToGithub(updatedContent, fileData.sha, `feat(cms): delete article ID ${articleId}`);
         revalidatePath("/articles");
