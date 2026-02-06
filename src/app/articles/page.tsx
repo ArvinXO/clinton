@@ -67,8 +67,8 @@ export default function Articles() {
                                         key={category}
                                         onClick={() => setSelectedCategory(category)}
                                         className={`w-full flex items-center justify-between p-3 rounded-xl transition-all text-sm ${selectedCategory === category
-                                                ? "bg-primary text-white font-bold px-4"
-                                                : "text-muted hover:bg-background hover:text-primary"
+                                            ? "bg-primary text-white font-bold px-4"
+                                            : "text-muted hover:bg-background hover:text-primary"
                                             }`}
                                     >
                                         <span>{category}</span>
@@ -112,7 +112,8 @@ export default function Articles() {
                                             animate={{ opacity: 1, scale: 1 }}
                                             exit={{ opacity: 0, scale: 0.95 }}
                                             transition={{ duration: 0.4, delay: i * 0.05 }}
-                                            className="group bg-white rounded-[2.5rem] overflow-hidden border border-border shadow-sm hover:shadow-2xl transition-all h-full flex flex-col pt-4"
+                                            onClick={() => window.location.href = `/articles/${article.slug}`}
+                                            className="group bg-white rounded-[2.5rem] overflow-hidden border border-border shadow-sm hover:shadow-2xl transition-all h-full flex flex-col pt-4 cursor-pointer"
                                         >
                                             {/* Article Image Placeholder with Typography */}
                                             <div className="mx-4 h-48 bg-background rounded-[2rem] relative overflow-hidden flex items-center justify-center border border-border shadow-inner">
