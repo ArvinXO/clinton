@@ -54,8 +54,16 @@ export default function AdminPortal() {
         summary: "",
         content: "",
         slug: "",
-        readTime: "8 min read"
+        readTime: "8 min read",
+        date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
     });
+
+    const setTodayDate = () => {
+        setFormData(prev => ({
+            ...prev,
+            date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+        }));
+    };
 
     // Auto-generate slug from title
     useEffect(() => {
@@ -94,7 +102,15 @@ export default function AdminPortal() {
     };
 
     const resetForm = () => {
-        setFormData({ title: "", category: "Legal Guide", summary: "", content: "", slug: "", readTime: "8 min read" });
+        setFormData({
+            title: "",
+            category: "Legal Guide",
+            summary: "",
+            content: "",
+            slug: "",
+            readTime: "8 min read",
+            date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+        });
         setEditingId(null);
         setPreviewMode(false);
     };
@@ -112,7 +128,7 @@ export default function AdminPortal() {
                 const newArt = {
                     id: Date.now().toString(),
                     ...payload,
-                    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+                    date: payload.date // Use the date from formData
                 };
                 setArticles([newArt, ...articles]);
             }
@@ -150,7 +166,8 @@ export default function AdminPortal() {
             summary: article.summary,
             content: parseToVisual(article.content),
             slug: article.slug,
-            readTime: article.readTime || "8 min read"
+            readTime: article.readTime || "8 min read",
+            date: article.date
         });
         setPreviewMode(false);
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -200,7 +217,7 @@ export default function AdminPortal() {
                         </div>
 
                         <form onSubmit={handlePublish} className="space-y-8 bg-white p-10 rounded-[2.5rem] border border-border shadow-sm">
-                            <div className="grid md:grid-cols-2 gap-6">
+                            <div className="grid md:grid-cols-3 gap-6">
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-black uppercase tracking-widest text-muted">Headline</label>
                                     <input type="text" required value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} className="w-full bg-background border border-border rounded-xl p-4 outline-none focus:border-accent text-primary font-bold" />
@@ -215,6 +232,18 @@ export default function AdminPortal() {
                                         <option>Privacy & Data</option>
                                     </select>
                                 </div>
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-black uppercase tracking-widest text-muted">Publish Date</label>
+                                    <div className="flex gap-2">
+                                        <input type="text" required value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} className="flex-1 bg-background border border-border rounded-xl p-4 outline-none focus:border-accent text-primary text-xs font-bold" />
+                                        <button type="button" onClick={setTodayDate} className="px-3 bg-background border border-border rounded-xl text-[8px] font-black uppercase hover:bg-accent hover:text-white transition-all">Today</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-black uppercase tracking-widest text-muted">URL Slug (e.g. article-link-name)</label>
+                                <input type="text" required value={formData.slug} onChange={(e) => setFormData({ ...formData, slug: e.target.value })} className="w-full bg-background border border-border rounded-xl p-4 outline-none focus:border-accent font-mono text-xs text-primary" />
                             </div>
 
                             <div className="space-y-2">

@@ -12,15 +12,28 @@ import { articles, categories } from "@/data/articles";
 export default function Articles() {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("All");
+    const [sortOrder, setSortOrder] = useState<"latest" | "oldest" | "az">("latest");
 
     const filteredArticles = useMemo(() => {
-        return articles.filter(article => {
+        let result = articles.filter(article => {
             const matchesSearch = article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 article.summary.toLowerCase().includes(searchQuery.toLowerCase());
             const matchesCategory = selectedCategory === "All" || article.category === selectedCategory;
             return matchesSearch && matchesCategory;
         });
-    }, [searchQuery, selectedCategory]);
+
+        // Sorting Logic
+        return result.sort((a, b) => {
+            if (sortOrder === "az") return a.title.localeCompare(b.title);
+
+            const dateA = new Date(a.date).getTime();
+            const dateB = new Date(b.date).getTime();
+
+            if (sortOrder === "latest") return dateB - dateA;
+            if (sortOrder === "oldest") return dateA - dateB;
+            return 0;
+        });
+    }, [searchQuery, selectedCategory, sortOrder]);
 
     const categoryCounts = useMemo(() => {
         const counts: Record<string, number> = { All: articles.length };
@@ -75,6 +88,30 @@ export default function Articles() {
                                         <span className={`text-[10px] font-black ${selectedCategory === category ? "text-accent" : "text-primary/20"}`}>
                                             {categoryCounts[category] || 0}
                                         </span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Sorting Card */}
+                        <div className="bg-white p-8 rounded-[2rem] border border-border shadow-sm group">
+                            <h5 className="text-[10px] font-black uppercase tracking-[0.3em] text-accent mb-6">Sort Intel</h5>
+                            <div className="flex flex-col gap-2">
+                                {[
+                                    { id: "latest", label: "Latest First", icon: TrendingUp },
+                                    { id: "oldest", label: "Oldest First", icon: Calendar },
+                                    { id: "az", label: "Alphabetical (A-Z)", icon: Hash }
+                                ].map((option) => (
+                                    <button
+                                        key={option.id}
+                                        onClick={() => setSortOrder(option.id as any)}
+                                        className={`flex items-center gap-3 p-3 rounded-xl transition-all text-xs font-bold ${sortOrder === option.id
+                                            ? "bg-accent/10 text-accent"
+                                            : "text-muted hover:bg-background hover:text-primary"
+                                            }`}
+                                    >
+                                        <option.icon className="w-4 h-4" />
+                                        {option.label}
                                     </button>
                                 ))}
                             </div>

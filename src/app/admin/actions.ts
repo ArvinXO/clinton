@@ -59,8 +59,7 @@ export async function publishArticle(formData: any) {
         const newArticle = {
             id: Date.now().toString(),
             ...formData,
-            date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-            readTime: "8 min read"
+            readTime: formData.readTime || "8 min read"
         };
 
         const jsonString = JSON.stringify(newArticle, null, 4);
