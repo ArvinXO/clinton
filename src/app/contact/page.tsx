@@ -21,17 +21,17 @@ export default function ContactPage() {
             </div>
 
             <section className="pb-24 max-w-7xl mx-auto px-6">
-                <div className="glass p-12 rounded-3xl grid md:grid-cols-3 gap-12 text-center border-primary/10">
+                <div className="glass p-12 rounded-3xl grid md:grid-cols-3 gap-12 text-center border-primary/5 shadow-2xl">
                     <div>
-                        <h5 className="font-serif text-xl mb-2">Main Office</h5>
+                        <h5 className="font-serif text-xl mb-2 text-primary">Main Office</h5>
                         <p className="text-muted text-sm">Central London<br />United Kingdom</p>
                     </div>
                     <div>
-                        <h5 className="font-serif text-xl mb-2">Working Hours</h5>
+                        <h5 className="font-serif text-xl mb-2 text-primary">Working Hours</h5>
                         <p className="text-muted text-sm">Monday – Friday<br />09:00 AM – 06:00 PM</p>
                     </div>
                     <div>
-                        <h5 className="font-serif text-xl mb-2">Direct Response</h5>
+                        <h5 className="font-serif text-xl mb-2 text-primary">Direct Response</h5>
                         <p className="text-muted text-sm">We aim to respond to all<br />enquiries within 24 hours.</p>
                     </div>
                 </div>

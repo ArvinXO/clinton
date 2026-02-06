@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Scale, Gavel } from "lucide-react";
+import { ArrowRight, ShieldCheck, Scale, Gavel, MousePointer2 } from "lucide-react";
 import Link from "next/link";
 
 const Hero = () => {
@@ -14,54 +14,57 @@ const Hero = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                        <ShieldCheck className="w-4 h-4" />
-                        Justice for Players
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-border text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-8 shadow-sm">
+                        <ShieldCheck className="w-3.5 h-3.5 text-accent" />
+                        Protecting UK Players
                     </div>
-                    <h1 className="text-5xl md:text-7xl font-serif mb-6 leading-tight">
-                        Recovering Losses from <br />
-                        <span className="gold-gradient">Offshore Operators.</span>
+                    <h1 className="text-6xl md:text-8xl font-serif mb-8 leading-[1.1] tracking-tight text-primary">
+                        Recovering <br />
+                        <span className="brand-gradient">Your Assets.</span>
                     </h1>
-                    <p className="text-lg text-muted mb-8 max-w-xl leading-relaxed">
-                        Specialist legal support for UK victims of offshore casino abuse.
-                        If you were self-excluded via GamStop but allowed to gamble at
-                        Curaçao-licensed casinos, we can help you reclaim what is rightfully yours.
+                    <p className="text-xl text-muted mb-10 max-w-xl leading-relaxed">
+                        Expert guided recovery for victims of offshore gambling abuse.
+                        If GamStop failed to protect you, we will.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col sm:flex-row gap-5">
                         <Link
                             href="/contact"
-                            className="px-8 py-4 gold-button rounded-sm text-center font-bold uppercase tracking-widest flex items-center justify-center gap-2"
+                            className="px-10 py-5 brand-button rounded-lg text-center font-bold uppercase tracking-widest flex items-center justify-center gap-2 shadow-xl shadow-primary/20"
                         >
-                            Start Free Assessment <ArrowRight className="w-4 h-4" />
+                            Get Started <ArrowRight className="w-4 h-4" />
                         </Link>
                         <Link
                             href="/how-it-works"
-                            className="px-8 py-4 glass text-white rounded-sm text-center font-bold uppercase tracking-widest hover:border-primary/40 transition-all"
+                            className="px-10 py-5 bg-white text-primary border border-border rounded-lg text-center font-bold uppercase tracking-widest hover:border-accent/40 hover:shadow-lg transition-all"
                         >
-                            Our Process
+                            The Process
                         </Link>
                     </div>
                 </motion.div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.2 }}
                     className="relative hidden md:block"
                 >
-                    <div className="absolute inset-0 bg-primary/10 blur-[120px] rounded-full" />
-                    <div className="relative glass border border-white/5 p-12 rounded-2xl">
-                        <div className="grid grid-cols-2 gap-8">
+                    <div className="absolute inset-0 bg-accent/5 blur-[120px] rounded-full" />
+                    <div className="relative bg-white border border-border p-12 rounded-[2.5rem] shadow-2xl">
+                        <div className="grid grid-cols-2 gap-10">
                             {[
-                                { icon: Scale, label: "Legal Expertise", value: "100%" },
-                                { icon: Gavel, label: "Case Success", value: "High-Rate" },
-                                { icon: ShieldCheck, label: "Protected", value: "Secure" },
-                                { icon: ArrowRight, label: "No Win No Fee*", value: "Risk-Free" },
+                                { icon: Scale, label: "Legal Basis", value: "Success-Oriented" },
+                                { icon: Gavel, label: "Advocacy", value: "Player-First" },
+                                { icon: ShieldCheck, label: "Security", value: "Fully Encrypted" },
+                                { icon: ArrowRight, label: "Fees", value: "Performance-Based" },
                             ].map((stat, i) => (
-                                <div key={i} className="flex flex-col">
-                                    <stat.icon className="w-8 h-8 text-primary mb-3" />
-                                    <span className="text-2xl font-serif font-bold text-white">{stat.value}</span>
-                                    <span className="text-xs uppercase tracking-wider text-muted font-bold">{stat.label}</span>
+                                <div key={i} className="space-y-4">
+                                    <div className="w-12 h-12 bg-background rounded-2xl flex items-center justify-center text-accent">
+                                        <stat.icon className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <p className="text-[10px] uppercase tracking-widest font-black text-muted">{stat.label}</p>
+                                        <p className="text-lg font-serif font-bold text-primary">{stat.value}</p>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -69,13 +72,15 @@ const Hero = () => {
                 </motion.div>
             </div>
 
-            {/* Scroll indicator */}
+            {/* Scroll Indicator */}
             <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 1 }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
             >
-                <div className="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent" />
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-muted">Scroll</span>
+                <div className="w-[1px] h-12 bg-gradient-to-b from-accent/50 to-transparent" />
             </motion.div>
         </section>
     );

@@ -40,7 +40,7 @@ export default function Articles() {
                                         <span className="flex items-center gap-2"><Calendar className="w-3 h-3" /> Coming Soon</span>
                                         <span className="flex items-center gap-2"><User className="w-3 h-3" /> Editorial Team</span>
                                     </div>
-                                    <h4 className="text-3xl font-serif mb-4 group-hover:text-primary transition-colors cursor-pointer">
+                                    <h4 className="text-3xl font-serif mb-4 group-hover:text-accent transition-colors cursor-pointer text-primary">
                                         Analysis: The Curaçao Licensing Loophole and Its Impact on UK Players
                                     </h4>
                                     <p className="text-muted leading-relaxed mb-6">
@@ -48,8 +48,8 @@ export default function Articles() {
                                         complexities of recovering funds from offshore operators. Check back soon for
                                         expert analysis and case studies.
                                     </p>
-                                    <span className="text-primary font-bold uppercase text-xs tracking-[0.2em] group-hover:gap-4 transition-all flex items-center gap-2 cursor-pointer">
-                                        Stay Informed <span className="w-8 h-[1px] bg-primary" />
+                                    <span className="text-accent font-bold uppercase text-xs tracking-[0.2em] group-hover:gap-4 transition-all flex items-center gap-2 cursor-pointer">
+                                        Stay Informed <span className="w-8 h-[1px] bg-accent" />
                                     </span>
                                 </div>
                             </motion.article>
@@ -58,36 +58,36 @@ export default function Articles() {
 
                     {/* Sidebar */}
                     <aside className="space-y-12">
-                        <div className="glass p-8 rounded-2xl">
-                            <h5 className="text-white font-bold uppercase tracking-widest text-xs mb-6">Search Articles</h5>
+                        <div className="bg-secondary p-8 rounded-2xl shadow-lg border border-border">
+                            <h5 className="text-primary font-bold uppercase tracking-widest text-xs mb-6">Search Articles</h5>
                             <div className="relative">
                                 <input
                                     type="text"
-                                    className="w-full bg-white/5 border border-white/10 rounded-lg p-3 pr-10 outline-none focus:border-primary/50 transition-all text-sm"
+                                    className="w-full bg-background border border-border rounded-lg p-3 pr-10 outline-none focus:border-primary/50 transition-all text-sm text-primary"
                                     placeholder="Keywords..."
                                 />
                                 <Search className="w-4 h-4 text-muted absolute right-3 top-1/2 -translate-y-1/2" />
                             </div>
                         </div>
 
-                        <div className="glass p-8 rounded-2xl">
-                            <h5 className="text-white font-bold uppercase tracking-widest text-xs mb-6">Categories</h5>
+                        <div className="bg-secondary p-8 rounded-2xl shadow-lg border border-border">
+                            <h5 className="text-primary font-bold uppercase tracking-widest text-xs mb-6">Categories</h5>
                             <ul className="space-y-4 text-sm text-muted">
                                 <li className="hover:text-primary transition-colors cursor-pointer flex justify-between">
                                     <span>Gambling Law</span>
-                                    <span className="text-white/20">0</span>
+                                    <span className="text-primary/20">0</span>
                                 </li>
                                 <li className="hover:text-primary transition-colors cursor-pointer flex justify-between">
                                     <span>Player Rights</span>
-                                    <span className="text-white/20">0</span>
+                                    <span className="text-primary/20">0</span>
                                 </li>
                                 <li className="hover:text-primary transition-colors cursor-pointer flex justify-between">
                                     <span>Curaçao Regulations</span>
-                                    <span className="text-white/20">0</span>
+                                    <span className="text-primary/20">0</span>
                                 </li>
                                 <li className="hover:text-primary transition-colors cursor-pointer flex justify-between">
                                     <span>Case Studies</span>
-                                    <span className="text-white/20">0</span>
+                                    <span className="text-primary/20">0</span>
                                 </li>
                             </ul>
                         </div>

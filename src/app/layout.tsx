@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   keywords: ["casino refund", "curacao casino", "gamstop bypass", "offshore gambling support", "clinton and co"],
 };
 
+import FloatingCTA from "@/components/FloatingCTA";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,9 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased selection:bg-primary/30 selection:text-white`}
+        className={`${inter.variable} ${playfair.variable} antialiased selection:bg-accent/20 selection:text-primary`}
       >
         {children}
+        <FloatingCTA />
       </body>
     </html>
   );

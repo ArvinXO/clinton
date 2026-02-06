@@ -25,7 +25,7 @@ export default function HowItWorks() {
                 </p>
                 <a
                     href="/contact"
-                    className="inline-block px-10 py-4 gold-button rounded-sm font-bold uppercase tracking-widest"
+                    className="inline-block px-10 py-4 brand-button rounded-sm font-bold uppercase tracking-widest"
                 >
                     Start Your Claim
                 </a>

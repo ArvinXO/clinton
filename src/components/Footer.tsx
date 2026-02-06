@@ -7,7 +7,7 @@ import { Twitter, Linkedin, Facebook } from "lucide-react";
 
 const Footer = () => {
     return (
-        <footer className="bg-background pt-24 pb-12 border-t border-white/5">
+        <footer className="bg-secondary pt-24 pb-12 border-t border-border">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     <div className="lg:col-span-1">
@@ -18,11 +18,11 @@ const Footer = () => {
                                     alt="Clinton & Co Logo"
                                     width={32}
                                     height={32}
-                                    className="object-contain brightness-0 invert"
+                                    className="object-contain"
                                 />
                             </div>
-                            <span className="text-xl font-serif font-bold tracking-tight">
-                                CLINTON <span className="text-primary">&</span> CO
+                            <span className="text-xl font-serif font-bold tracking-tight text-primary">
+                                CLINTON <span className="text-accent">&</span> CO
                             </span>
                         </Link>
                         <p className="text-muted text-sm leading-relaxed mb-8">
@@ -43,7 +43,7 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Quick Links</h4>
+                        <h4 className="text-primary font-bold mb-6 uppercase tracking-widest text-xs">Quick Links</h4>
                         <ul className="space-y-4 text-sm">
                             <li><Link href="/about" className="text-muted hover:text-primary transition-colors">About Us</Link></li>
                             <li><Link href="/how-it-works" className="text-muted hover:text-primary transition-colors">How It Works</Link></li>
@@ -53,7 +53,7 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Legal</h4>
+                        <h4 className="text-primary font-bold mb-6 uppercase tracking-widest text-xs">Legal</h4>
                         <ul className="space-y-4 text-sm">
                             <li><Link href="/terms" className="text-muted hover:text-primary transition-colors">Terms of Service</Link></li>
                             <li><Link href="/privacy" className="text-muted hover:text-primary transition-colors">Privacy Policy</Link></li>
@@ -63,22 +63,22 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Stay Informed</h4>
+                        <h4 className="text-primary font-bold mb-6 uppercase tracking-widest text-xs">Stay Informed</h4>
                         <p className="text-muted text-sm mb-4">Latest news on gambling law and player protection.</p>
                         <form className="flex gap-2">
                             <input
                                 type="email"
                                 placeholder="Email"
-                                className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-sm outline-none w-full focus:border-primary/50"
+                                className="bg-white border border-border rounded-lg px-4 py-2 text-sm outline-none w-full focus:border-primary/50"
                             />
-                            <button className="p-2 gold-button rounded-lg">
+                            <button className="p-2 brand-button rounded-lg">
                                 <Linkedin className="w-4 h-4" />
                             </button>
                         </form>
                     </div>
                 </div>
 
-                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div className="pt-12 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-muted text-xs">
                         © {new Date().getFullYear()} Clinton & Co Advisors. All rights reserved.
                     </p>

@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0A0A0A;
-  --foreground: #F5F5F5;
-  --primary: #D4AF37;
-  /* Gold */
-  --primary-hover: #B8860B;
-  --secondary: #1A1A1A;
-  /* Charcoal */
-  --accent: #2C3E50;
-  --muted: #8E8E8E;
+  --background: #F8FAFC;
+  /* Softer Off-White (Slate 50) */
+  --foreground: #010816;
+  /* Near Black Navy for sharp text */
+  --primary: #1E3A8A;
+  /* Official Trust Navy */
+  --primary-hover: #172554;
+  --secondary: #FFFFFF;
+  /* Pure White for elevated cards */
+  --accent: #2563EB;
+  /* Vibrant Royal Blue */
+  --muted: #475569;
+  /* Slate 600 for optimal reading contrast */
+  --border: #E2E8F0;
 }
 
 @theme inline {
@@ -20,6 +25,7 @@
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
   --color-muted: var(--muted);
+  --color-border: var(--border);
 
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-inter);
@@ -41,29 +47,30 @@ h5,
 h6 {
   font-family: var(--font-playfair), serif;
   font-weight: 700;
+  color: var(--foreground);
 }
 
 .glass {
-  background: rgba(26, 26, 26, 0.7);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(30, 58, 138, 0.1);
 }
 
-.gold-gradient {
-  background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+.brand-gradient {
+  background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.gold-button {
-  background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
-  color: #000;
+.brand-button {
+  background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
+  color: #FFFFFF;
   transition: all 0.3s ease;
 }
 
-.gold-button:hover {
+.brand-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
 }

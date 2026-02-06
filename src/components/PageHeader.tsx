@@ -10,8 +10,8 @@ interface PageHeaderProps {
 
 const PageHeader = ({ title, subtitle }: PageHeaderProps) => {
     return (
-        <div className="pt-40 pb-20 relative overflow-hidden">
-            <div className="absolute inset-0 bg-primary/5 blur-[100px] -z-10" />
+        <div className="pt-40 pb-20 relative overflow-hidden bg-secondary/30">
+            <div className="absolute inset-0 bg-accent/5 blur-[100px] -z-10" />
             <div className="max-w-7xl mx-auto px-6">
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}

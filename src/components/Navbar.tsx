@@ -38,11 +38,11 @@ const Navbar = () => {
                             alt="Clinton & Co Logo"
                             width={48}
                             height={48}
-                            className="object-contain brightness-0 invert"
+                            className="object-contain"
                         />
                     </div>
-                    <span className="text-xl font-serif font-bold tracking-tight">
-                        CLINTON <span className="text-primary">&</span> CO
+                    <span className="text-xl font-serif font-bold tracking-tight text-primary">
+                        CLINTON <span className="text-accent">&</span> CO
                     </span>
                 </Link>
 
@@ -52,15 +52,15 @@ const Navbar = () => {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium tracking-wide uppercase hover:text-primary transition-colors relative group"
+                            className="text-sm font-semibold tracking-wide uppercase text-primary/80 hover:text-primary transition-colors relative group"
                         >
                             {link.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" />
                         </Link>
                     ))}
                     <Link
                         href="/contact"
-                        className="px-6 py-2.5 gold-button rounded-sm text-sm font-bold uppercase tracking-widest"
+                        className="px-6 py-2.5 brand-button rounded-sm text-sm font-bold uppercase tracking-widest"
                     >
                         Start Claim
                     </Link>
@@ -68,7 +68,7 @@ const Navbar = () => {
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden text-white"
+                    className="md:hidden text-primary"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
                     {mobileMenuOpen ? <X /> : <Menu />}
@@ -89,7 +89,7 @@ const Navbar = () => {
                                 key={link.name}
                                 href={link.href}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="text-lg font-medium hover:text-primary transition-colors"
+                                className="text-lg font-medium text-primary/80 hover:text-primary transition-colors"
                             >
                                 {link.name}
                             </Link>
@@ -97,7 +97,7 @@ const Navbar = () => {
                         <Link
                             href="/contact"
                             onClick={() => setMobileMenuOpen(false)}
-                            className="mt-4 px-6 py-3 gold-button rounded-sm text-center font-bold uppercase tracking-widest"
+                            className="mt-4 px-6 py-3 brand-button rounded-sm text-center font-bold uppercase tracking-widest"
                         >
                             Start Claim
                         </Link>
