@@ -65,12 +65,20 @@ export async function publishArticle(formData: any) {
 
         const jsonString = JSON.stringify(newArticle, null, 4);
 
-        // More robust way to find the end of the 'articles' array specifically
+        // Find the articles array end
         const categoriesStart = currentContent.indexOf("export const categories");
         const articlesSection = currentContent.slice(0, categoriesStart);
         const arrayEndIndex = articlesSection.lastIndexOf("];");
 
-        const updatedContent = articlesSection.slice(0, arrayEndIndex) + `    ${jsonString},\n` + articlesSection.slice(arrayEndIndex) + currentContent.slice(categoriesStart);
+        const beforeEnd = articlesSection.slice(0, arrayEndIndex).trim();
+        const hasTrailingComma = beforeEnd.endsWith(",");
+        const needsComma = !hasTrailingComma && beforeEnd.endsWith("}");
+
+        const updatedContent = articlesSection.slice(0, arrayEndIndex).trimEnd() +
+            (needsComma ? ",\n" : "\n") +
+            `    ${jsonString},\n` +
+            "];\n\n" +
+            currentContent.slice(categoriesStart);
 
         await commitToGithub(updatedContent, fileData.sha, `feat(cms): add article "${formData.title}"`);
         revalidatePath("/articles");
