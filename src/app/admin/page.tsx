@@ -2,9 +2,10 @@
 
 import React, { useState, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lock, FileText, Plus, LogOut, Trash2, Edit3, CheckCircle2, AlertCircle, Loader2, ExternalLink, Eye, PenTool, HelpCircle, Bold, Heading2, Quote, Link as LinkIcon, List } from "lucide-react";
+import { Lock, FileText, Plus, LogOut, Trash2, Edit3, CheckCircle2, AlertCircle, Loader2, ExternalLink, Eye, PenTool, HelpCircle, Bold, Heading2, Quote, Link as LinkIcon, List, Send } from "lucide-react";
 import { publishArticle, deleteArticle, updateArticle } from "./actions";
 import { articles as initialArticles } from "@/data/articles";
+import { CONFIG } from "@/data/config";
 
 // Enhanced Parser
 const parseToHtml = (text: string) => {
@@ -149,7 +150,10 @@ export default function AdminPortal() {
             <nav className="bg-white border-b border-border py-4 px-8 flex items-center justify-between sticky top-0 z-50 shadow-sm">
                 <div className="flex items-center gap-4">
                     <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white text-[10px] font-bold">C&C</div>
-                    <span className="font-bold text-primary uppercase tracking-widest text-[10px]">Administrative Hub</span>
+                    <div className="flex flex-col">
+                        <span className="font-bold text-primary uppercase tracking-widest text-[10px]">Administrative Hub</span>
+                        <span className="text-[8px] text-muted font-mono">{CONFIG.version}</span>
+                    </div>
                 </div>
                 <button onClick={() => setIsLoggedIn(false)} className="flex items-center gap-2 text-xs font-bold text-muted hover:text-red-500 transition-colors"><LogOut className="w-4 h-4" /> Exit</button>
             </nav>

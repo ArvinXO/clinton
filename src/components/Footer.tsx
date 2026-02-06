@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Twitter, Linkedin, Facebook } from "lucide-react";
+import { CONFIG } from "@/data/config";
 
 const Footer = () => {
     return (
@@ -79,9 +80,14 @@ const Footer = () => {
                 </div>
 
                 <div className="pt-12 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-muted text-xs">
-                        © {new Date().getFullYear()} Clinton & Co Advisors. All rights reserved.
-                    </p>
+                    <div className="flex flex-col gap-1">
+                        <p className="text-muted text-xs">
+                            © {new Date().getFullYear()} Clinton & Co Advisors. All rights reserved.
+                        </p>
+                        <p className="text-[10px] text-muted/50 font-mono tracking-tighter">
+                            SYSTEM: {CONFIG.version} | UPDATED: {CONFIG.lastUpdated}
+                        </p>
+                    </div>
                     <p className="text-muted text-[10px] uppercase tracking-widest max-w-md text-center md:text-right">
                         *CLINTON & CO ARE NOT LAWYERS OR SOLICITORS. WE CONNECT CLIENTS WITH REGULATED LEGAL PARTNERS.
                     </p>
