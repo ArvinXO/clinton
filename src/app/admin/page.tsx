@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useMemo, useRef } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lock, FileText, Plus, LogOut, Trash2, Edit3, CheckCircle2, AlertCircle, Loader2, ExternalLink, Eye, PenTool, HelpCircle, Bold, Heading2, Quote, Link as LinkIcon, List, Send } from "lucide-react";
+import { Lock, FileText, Plus, LogOut, Trash2, Edit3, CheckCircle2, AlertCircle, Loader2, ExternalLink, Eye, PenTool, HelpCircle, Bold, Heading2, Quote, Link as LinkIcon, List, Send, TrendingUp } from "lucide-react";
 import { publishArticle, deleteArticle, updateArticle } from "./actions";
 import { articles as initialArticles } from "@/data/articles";
 import { CONFIG } from "@/data/config";
@@ -56,6 +56,17 @@ export default function AdminPortal() {
         slug: "",
         readTime: "8 min read"
     });
+
+    // Auto-generate slug from title
+    useEffect(() => {
+        if (!editingId && formData.title && !formData.slug) {
+            const autoSlug = formData.title
+                .toLowerCase()
+                .replace(/[^\w\s-]/g, '')
+                .replace(/\s+/g, '-');
+            setFormData(prev => ({ ...prev, slug: autoSlug }));
+        }
+    }, [formData.title, editingId, formData.slug]);
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
@@ -246,6 +257,21 @@ export default function AdminPortal() {
                     </div>
 
                     <div className="lg:col-span-12 xl:col-span-4 space-y-8">
+                        {/* Deployment Status Feedback */}
+                        <div className="bg-primary p-8 rounded-[2.5rem] text-white overflow-hidden relative group">
+                            <div className="relative z-10">
+                                <TrendingUp className="w-8 h-8 text-accent mb-4" />
+                                <h3 className="text-xl font-serif italic mb-2">Sync Intelligence</h3>
+                                <p className="text-white/60 text-[10px] leading-relaxed mb-4 uppercase tracking-wider">
+                                    When you broadcast, the public site rebuilds. This takes <strong>1-2 minutes</strong> to sync.
+                                </p>
+                                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-accent">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                                    Active Hub Link
+                                </div>
+                            </div>
+                        </div>
+
                         <button
                             onClick={resetForm}
                             className="w-full bg-white border-2 border-dashed border-border p-8 rounded-[2.5rem] flex flex-col items-center justify-center gap-4 group hover:border-accent hover:bg-accent/5 transition-all"
