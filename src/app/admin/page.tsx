@@ -46,6 +46,8 @@ export default function AdminPortal() {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
     const [editingId, setEditingId] = useState<string | null>(null);
+    const [articles, setArticles] = useState(initialArticles);
+
     const [formData, setFormData] = useState({
         title: "",
         category: "Legal Guide",
@@ -92,6 +94,18 @@ export default function AdminPortal() {
         const payload = { ...formData, content: parseToHtml(formData.content) };
         const result = editingId ? await updateArticle(editingId, payload) : await publishArticle(payload);
         if (result && result.success) {
+            // Update local state for immediate feedback
+            if (editingId) {
+                setArticles(articles.map(a => a.id === editingId ? { ...a, ...payload } : a));
+            } else {
+                const newArt = {
+                    id: Date.now().toString(),
+                    ...payload,
+                    date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+                };
+                setArticles([newArt, ...articles]);
+            }
+
             setStatus("success");
             setMessage(result.message || "Success");
             resetForm();
@@ -107,6 +121,7 @@ export default function AdminPortal() {
         setStatus("loading");
         const result = await deleteArticle(id);
         if (result && result.success) {
+            setArticles(articles.filter(a => a.id !== id));
             setStatus("success");
             setMessage("Asset Removed.");
         } else {
@@ -247,7 +262,7 @@ export default function AdminPortal() {
                         <div className="bg-white p-8 rounded-[2.5rem] border border-border shadow-sm">
                             <h3 className="text-xl font-serif text-primary mb-6">Insight Inventory</h3>
                             <div className="space-y-4 max-h-[800px] overflow-y-auto pr-2 custom-scrollbar">
-                                {initialArticles.map((article) => (
+                                {articles.map((article) => (
                                     <div key={article.id} className="p-4 bg-background border border-border rounded-2xl group flex items-start justify-between gap-4">
                                         <div className="flex-1">
                                             <span className="text-[8px] font-black text-accent uppercase tracking-widest block mb-1">{article.category}</span>
