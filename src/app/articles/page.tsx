@@ -127,7 +127,7 @@ export default function Articles() {
                                 </p>
                                 <div className="flex flex-wrap gap-2">
                                     {["UKGC", "Chargebacks", "GDPR", "KYC"].map(tag => (
-                                        <span key={tag} className="px-3 py-1 bg-white/5 rounded-full text-[10px] text-accent border border-white/10">
+                                        <span key={tag} className="px-3 py-1 bg-white/10 rounded-full text-[10px] text-white border border-white/20">
                                             #{tag}
                                         </span>
                                     ))}

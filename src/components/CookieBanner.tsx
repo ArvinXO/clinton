@@ -51,7 +51,7 @@ export default function CookieBanner() {
                                 <div className="flex-1">
                                     <div className="flex items-center justify-between mb-3">
                                         <h4 className="text-white font-serif text-xl italic flex items-center gap-2">
-                                            <Cookie className="w-5 h-5 text-accent sm:hidden" />
+                                            <Cookie className="w-5 h-5 text-white/80 sm:hidden" />
                                             Privacy Intelligence
                                         </h4>
                                         <button

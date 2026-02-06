@@ -294,8 +294,8 @@ export default function AdminPortal() {
                                 <p className="text-white/60 text-[10px] leading-relaxed mb-4 uppercase tracking-wider">
                                     When you broadcast, the public site rebuilds. This takes <strong>1-2 minutes</strong> to sync.
                                 </p>
-                                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-accent">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                                     Active Hub Link
                                 </div>
                             </div>
