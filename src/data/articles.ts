@@ -83,7 +83,7 @@ export const articles: Article[] = [
             <p>The introduction of the LOK (Landsverordening op de Kansspelen) is forcing offshore operators to meet AML standards equivalent to the EU.</p>
             <blockquote>"The era of unregulated islands is coming to a definitive end."</blockquote>
             <h2>Enforcement Channels</h2>
-            <p>How to use local Antillean legal counsel to serve notices to operators who believe they are unreachable from the UK.</p>
+            <p>How to use local Antillean legal counsel to serve notices to operators who believe they are unreachable from abroad.</p>
         `
     },
     {

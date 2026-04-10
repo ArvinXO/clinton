@@ -7,7 +7,7 @@ import { Plus, Minus } from "lucide-react";
 const FAQ = () => {
     const faqs = [
         {
-            question: "Is it actually possible to recover money from Curaçao casinos?",
+            question: "Is it actually possible to recover money?",
             answer: "Yes. While these casinos operate outside of direct UKGC regulation, they often use payment processors and infrastructure that must comply with international financial laws. By identifying systemic failures in their player protection duties (like ignoring GamStop), legal recourse is possible."
         },
         {
@@ -20,7 +20,7 @@ const FAQ = () => {
         },
         {
             question: "Is my case confidential?",
-            answer: "Absolutely. We understand the sensitive nature of these claims. All data is handled in strict accordance with UK GDPR, and your privacy is our highest priority."
+            answer: "Absolutely. We understand the sensitive nature of these claims. All data is handled in strict accordance with GDPR, and your privacy is our highest priority."
         }
     ];
 

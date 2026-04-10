@@ -48,7 +48,7 @@ export default function Articles() {
             <DynamicBackground />
             <Navbar />
             <PageHeader
-                title="Knowledge Hub"
+                title="Articles"
                 subtitle="Expert analysis on gambling law, legislative changes, and strategic recovery pathways."
             />
 

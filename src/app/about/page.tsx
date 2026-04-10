@@ -13,7 +13,7 @@ export default function About() {
             <Navbar />
             <PageHeader
                 title="About Our Mission"
-                subtitle="We are a legal-led support initiative committed to helping people reclaim their money and rebuild their lives."
+                subtitle="We are a support initiative committed to helping people reclaim their money and rebuild their lives."
             />
 
             <section className="py-24 max-w-7xl mx-auto px-6">
@@ -25,13 +25,13 @@ export default function About() {
                         className="space-y-6 text-lg text-muted leading-relaxed"
                     >
                         <p>
-                            Unlike UK-regulated operators, Curaçao-licensed casinos operate outside British law. They deliberately bypass player protections: there are no deposit limits, no self-exclusion enforcement, and no accountability when they refuse to pay out.
+                            Unlike formally regulated operators, Curaçao-licensed casinos operate outside standard jurisdictions. They deliberately bypass player protections: there are no deposit limits, no self-exclusion enforcement, and no accountability when they refuse to pay out.
                         </p>
                         <p className="text-primary font-serif text-2xl">
                             This isn’t a grey area. It’s <span className="text-accent italic">gambling abuse</span>.
                         </p>
                         <p>
-                            Many victims suffer in silence — ashamed, isolated, and unsure where to turn. Clinton & Co Advisors was founded by one of those victims: someone who fought back, recovered their losses, and now works with specialists to help others do the same.
+                            Countless victims suffer in silence, burdened by shame and isolation, unsure of where to turn. Clinton & Co Advisors was founded by one of these victims—someone who refused to back down, successfully recovered their losses, and now collaborates with specialists to help others do the same.
                         </p>
                     </motion.div>
 
@@ -43,8 +43,8 @@ export default function About() {
                     >
                         <h3 className="text-3xl font-serif mb-6 text-primary text-center">Our Commitment</h3>
                         <p className="text-muted text-center italic mb-8">
-                            "We are not a casino claims mill. We provide the expertise and legal connections
-                            needed to stand up to offshore operators who profit from your pain."
+                            "While we do not provide legal advice, we connect you with specialized legal consultants
+                            who have the expertise needed to stand up to offshore operators and fight your case."
                         </p>
                         <div className="flex justify-center">
                             <div className="w-20 h-1 bg-accent" />
@@ -54,9 +54,9 @@ export default function About() {
 
                 <div className="mt-32 grid md:grid-cols-3 gap-12">
                     {[
-                        { title: "Transparency", desc: "No hidden fees, no false promises. Just clear, honest legal guidance." },
+                        { title: "Transparency", desc: "No hidden fees, no false promises. Just clear, honest guidance." },
                         { title: "Integrity", desc: "We prioritize your recovery and mental health over profit." },
-                        { title: "Expertise", desc: "We work exclusively with specialists in offshore gambling law." }
+                        { title: "Expertise", desc: "We connect you exclusively with legal consultants who specialize in offshore gambling law." }
                     ].map((value, i) => (
                         <motion.div
                             key={i}

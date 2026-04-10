@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Hero = () => {
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <section className="relative pt-40 lg:pt-56 pb-24 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
@@ -16,7 +16,7 @@ const Hero = () => {
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-border text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-8 shadow-sm">
                         <ShieldCheck className="w-3.5 h-3.5 text-accent" />
-                        Protecting UK Players
+                        Protecting Players
                     </div>
                     <h1 className="text-6xl md:text-8xl font-serif mb-8 leading-[1.1] tracking-tight text-primary">
                         Recovering <br />
@@ -46,24 +46,23 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.2 }}
-                    className="relative hidden md:block"
+                    className="relative hidden md:flex justify-end lg:justify-center items-center"
                 >
                     <div className="absolute inset-0 bg-accent/5 blur-[120px] rounded-full" />
-                    <div className="relative bg-white border border-border p-12 rounded-[2.5rem] shadow-2xl">
-                        <div className="grid grid-cols-2 gap-10">
+                    <div className="relative bg-white border border-border p-10 lg:p-12 rounded-[2.5rem] shadow-2xl w-fit">
+                        <div className="flex flex-col gap-8">
                             {[
-                                { icon: Scale, label: "Legal Basis", value: "Success-Oriented" },
                                 { icon: Gavel, label: "Advocacy", value: "Player-First" },
                                 { icon: ShieldCheck, label: "Security", value: "Fully Encrypted" },
                                 { icon: ArrowRight, label: "Fees", value: "Performance-Based" },
                             ].map((stat, i) => (
-                                <div key={i} className="space-y-4">
-                                    <div className="w-12 h-12 bg-background rounded-2xl flex items-center justify-center text-accent">
+                                <div key={i} className="flex items-center gap-6">
+                                    <div className="w-14 h-14 shrink-0 bg-background rounded-2xl flex items-center justify-center text-accent">
                                         <stat.icon className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <p className="text-[10px] uppercase tracking-widest font-black text-muted">{stat.label}</p>
-                                        <p className="text-lg font-serif font-bold text-primary">{stat.value}</p>
+                                        <p className="text-[10px] uppercase tracking-widest font-black text-muted mb-1">{stat.label}</p>
+                                        <p className="text-xl font-serif font-bold text-primary">{stat.value}</p>
                                     </div>
                                 </div>
                             ))}

@@ -31,7 +31,7 @@ const Contact = () => {
                             </div>
                             <div>
                                 <p className="text-[10px] uppercase tracking-[0.2em] text-muted font-black">Direct Email</p>
-                                <p className="text-lg text-primary font-bold">office@clintonandco.co.uk</p>
+                                <p className="text-lg text-primary font-bold">contact@clintonandco.co.uk</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-6 group">
@@ -40,7 +40,7 @@ const Contact = () => {
                             </div>
                             <div>
                                 <p className="text-[10px] uppercase tracking-[0.2em] text-muted font-black">Case Support</p>
-                                <p className="text-lg text-primary font-bold">020 8123 4567</p>
+                                <p className="text-lg text-primary font-bold">+44 7961 042072</p>
                             </div>
                         </div>
                     </div>

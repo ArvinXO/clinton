@@ -14,7 +14,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Clinton & Co Advisors | Justice & Recovery from Offshore Casino Abuse",
-  description: "Specialist legal support for UK victims of offshore casino abuse. We help self-excluded players reclaim funds from Curaçao-licensed operators.",
+  description: "Specialist legal support for victims of offshore casino abuse. We help self-excluded players reclaim funds from Curaçao-licensed operators.",
   keywords: ["casino refund", "curacao casino", "gamstop bypass", "offshore gambling support", "clinton and co"],
 };
 

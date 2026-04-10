@@ -49,7 +49,7 @@ export default function Privacy() {
 
                     <h2 className="text-2xl font-serif text-primary">6. Contact Us</h2>
                     <p>
-                        If you have any questions about our Privacy Policy or how we handle your data, please contact us at office@clintonandco.co.uk.
+                        If you have any questions about our Privacy Policy or how we handle your data, please contact us at contact@clintonandco.co.uk.
                     </p>
                 </motion.div>
             </section>

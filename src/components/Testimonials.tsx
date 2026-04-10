@@ -9,19 +9,19 @@ const Testimonials = () => {
         {
             text: "I felt completely hopeless after being targeted by an offshore casino despite my self-exclusion. Clinton & Co connected me with the right people to get a full refund of my deposits. I can't thank them enough.",
             author: "D. Smith",
-            location: "Leicester, UK",
+            location: "Leicester",
             amount: "£14,200 Recovered"
         },
         {
             text: "The professional approach and clear communication were exactly what I needed. They took the shame out of the process and treated my case with the seriousness it deserved.",
             author: "S. Thompson",
-            location: "London, UK",
+            location: "London",
             amount: "£8,500 Recovered"
         },
         {
             text: "Fast, discrete, and incredibly effective. If you think you're stuck because a casino is based in Curacao, speak to these guys first. They know the loopholes.",
             author: "M. Ahmed",
-            location: "Manchester, UK",
+            location: "Manchester",
             amount: "£32,000 Recovered"
         }
     ];

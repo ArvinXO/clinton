@@ -23,12 +23,11 @@ const Footer = () => {
                                 />
                             </div>
                             <span className="text-xl font-serif font-bold tracking-tight text-primary">
-                                CLINTON <span className="text-accent">&</span> CO
+                                CLINTON <span className="font-['Georgia',serif] font-normal text-[0.95em] text-accent mx-0.5">&</span> CO
                             </span>
                         </Link>
                         <p className="text-muted text-sm leading-relaxed mb-8">
-                            Legal-led support initiative committed to helping UK victims of
-                            offshore casino abuse reclaim their funds and rebuild their lives.
+                            Support initiative committed to helping victims of offshore casino abuse reclaim their funds and rebuild their lives.
                         </p>
                         <div className="flex gap-4">
                             <a href="#" className="p-2 glass rounded-full hover:border-primary/50 transition-all">
@@ -54,7 +53,7 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="text-primary font-bold mb-6 uppercase tracking-widest text-xs">Legal</h4>
+                        <h4 className="text-primary font-bold mb-6 uppercase tracking-widest text-xs">Policies</h4>
                         <ul className="space-y-4 text-sm">
                             <li><Link href="/terms" className="text-muted hover:text-primary transition-colors">Terms of Service</Link></li>
                             <li><Link href="/privacy" className="text-muted hover:text-primary transition-colors">Privacy Policy</Link></li>

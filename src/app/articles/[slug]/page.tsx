@@ -75,7 +75,7 @@ export default function ArticleDetail() {
                         className="flex items-center gap-2 text-muted hover:text-primary mb-12 group transition-colors"
                     >
                         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                        Back to Knowledge Hub
+                        Back to Articles
                     </motion.button>
 
                     <div className="space-y-8 mb-16">

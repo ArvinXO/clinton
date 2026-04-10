@@ -13,7 +13,7 @@ export default function ContactPage() {
             <Navbar />
             <PageHeader
                 title="Get in Touch"
-                subtitle="Start your recovery journey today. Our initial consultation is free, confidential, and without obligation."
+                subtitle="Start your recovery journey today. Our consultation is free, confidential, and without obligation."
             />
 
             <div className="-mt-12 relative z-20">

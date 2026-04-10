@@ -9,7 +9,7 @@ const Mission = () => {
         {
             icon: ShieldAlert,
             title: "Player Protection Gap",
-            desc: "When UK players self-exclude via GamStop, they expect to be protected. Offshore operators exploit this vulnerability by creating 'mirrors' and bypassed systems that ignore these life-saving protections."
+            desc: "When players self-exclude, they expect to be protected. Offshore operators exploit this vulnerability by creating 'mirrors' and bypassed systems that ignore these life-saving protections."
         },
         {
             icon: Scale,
@@ -24,7 +24,7 @@ const Mission = () => {
         {
             icon: Zap,
             title: "Levelling the Field",
-            desc: "UK-regulated casinos play by strict rules. Offshore operators profit by breaking them. We fight to ensure that geography is no longer a loophole for predatory behavior."
+            desc: "Regulated casinos play by strict rules. Offshore operators profit by breaking them. We fight to ensure that geography is no longer a loophole for predatory behavior."
         }
     ];
 
@@ -45,7 +45,7 @@ const Mission = () => {
                         <p className="text-lg text-muted leading-relaxed mb-8">
                             Clinton & Co was founded on a simple premise: **Justice shouldn't have borders.**
                             For too long, offshore operators have hidden behind distant licenses to avoid
-                            their responsibilities toward UK players.
+                            their responsibilities toward vulnerable players.
                         </p>
                         <div className="p-8 bg-primary rounded-[2rem] text-white shadow-2xl relative overflow-hidden">
                             <div className="relative z-10">

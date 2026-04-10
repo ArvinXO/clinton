@@ -42,7 +42,7 @@ const Navbar = () => {
                         />
                     </div>
                     <span className="text-xl font-serif font-bold tracking-tight text-primary">
-                        CLINTON <span className="text-accent">&</span> CO
+                        CLINTON <span className="font-['Georgia',serif] font-normal text-[0.95em] text-accent mx-0.5">&</span> CO
                     </span>
                 </Link>
 

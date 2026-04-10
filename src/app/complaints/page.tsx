@@ -29,7 +29,7 @@ export default function Complaints() {
 
                     <h2 className="text-2xl font-serif text-primary">How to Make a Complaint</h2>
                     <p>
-                        If you have a complaint, please contact us by email at office@clintonandco.co.uk. Please provide as much detail as possible, including your contact information and the nature of the issue.
+                        If you have a complaint, please contact us by email at contact@clintonandco.co.uk. Please provide as much detail as possible, including your contact information and the nature of the issue.
                     </p>
 
                     <h2 className="text-2xl font-serif text-primary">Our Response Process</h2>

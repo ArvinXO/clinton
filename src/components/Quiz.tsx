@@ -194,7 +194,7 @@ const Quiz = () => {
                     <CheckCircle2 className="w-10 h-10" />
                 </div>
                 <div className="space-y-2">
-                    <h3 className="text-3xl font-serif text-primary">Eligibility Quiz Submitted!</h3>
+                    <h3 className="text-3xl font-serif text-primary">Eligibility Assessment Submitted!</h3>
                     <p className="text-muted max-w-md mx-auto">
                         Thank you, {formData.name.split(' ')[0]}. Our senior advisors are reviewing your case against the provided details for {formData.casino}. We will reach out within 24 hours.
                     </p>
