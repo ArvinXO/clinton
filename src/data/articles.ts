@@ -196,18 +196,8 @@ export const articles: Article[] = [
             <h2>The Resolution</h2>
             <p>Faced with a merchant account freeze, the parent company settled the full £40,000 within 14 days, plus our legal costs.</p>
         `
-    },
-    {
-    "id": "1770397116448",
-    "title": "Namana",
-    "category": "Case Study",
-    "summary": "Layli namana",
-    "content": "<p><strong>Emshi namana</strong></p>\n<blockquote>Layli></blockquote>",
-    "slug": "n",
-    "readTime": "8 min read",
-    "date": "February 6, 2026"
-},
-];
+    }
+];;
 
 export const categories = [
     "All",
