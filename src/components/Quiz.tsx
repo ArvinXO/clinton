@@ -15,6 +15,8 @@ import {
 const Quiz = () => {
     const [step, setStep] = useState(1);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [submitError, setSubmitError] = useState("");
     const [formData, setFormData] = useState({
         casino: "",
         gamstop: "",
@@ -35,9 +37,48 @@ const Quiz = () => {
         if (step > 1) setStep(step - 1);
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    // ── Formsubmit.co — no account or API key needed ───────────────────────
+    // On the very first live submission, Formsubmit will send a one-time
+    // activation email to contact@clintonandco.co.uk — just click the link.
+    const FORM_ENDPOINT = "https://formsubmit.co/ajax/contact@clintonandco.co.uk";
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setIsSubmitted(true);
+        setIsLoading(true);
+        setSubmitError("");
+
+        const lastName = formData.name.trim().split(" ").slice(-1)[0] || "Client";
+        const subject = `Eligibility Assessment – ${formData.casino} / ${lastName}`;
+
+        const payload = {
+            _subject: subject,
+            _template: "table",   // arrives as a clean HTML table
+            _captcha: "false",
+            "Which casino operator were you using?": formData.casino,
+            "Were you registered with GamStop?": formData.gamstop,
+            "Estimated recovery amount?": formData.loss,
+            "Full Name": formData.name,
+            "Email Address": formData.email,
+            "Phone Number": formData.phone || "Not provided",
+        };
+
+        try {
+            const res = await fetch(FORM_ENDPOINT, {
+                method: "POST",
+                headers: { "Content-Type": "application/json", Accept: "application/json" },
+                body: JSON.stringify(payload),
+            });
+            const data = await res.json();
+            if (data.success === "true" || data.success === true) {
+                setIsSubmitted(true);
+            } else {
+                setSubmitError(data.message || "Submission failed. Please try again.");
+            }
+        } catch {
+            setSubmitError("Network error. Please check your connection and try again.");
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     const renderStep = () => {
@@ -169,12 +210,15 @@ const Quiz = () => {
                                 />
                             </div>
                         </div>
+                        {submitError && (
+                            <p className="text-red-500 text-sm text-center">{submitError}</p>
+                        )}
                         <button
                             onClick={handleSubmit}
-                            disabled={!formData.name || !formData.email}
+                            disabled={!formData.name || !formData.email || isLoading}
                             className="w-full brand-button py-4 rounded-xl font-bold uppercase tracking-widest flex items-center justify-center gap-2 disabled:opacity-50"
                         >
-                            Submit Assessment <Send className="w-4 h-4" />
+                            {isLoading ? "Sending…" : <><span>Submit Assessment</span><Send className="w-4 h-4" /></>}
                         </button>
                     </motion.div>
                 );
